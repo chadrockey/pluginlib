@@ -8,7 +8,7 @@ catkin_python_setup()
 
 catkin_package(
   INCLUDE_DIRS include
-  LIBRARIES tinyxml
+  LIBRARIES
   CATKIN_DEPENDS class_loader rosconsole roslib
   DEPENDS Boost
 )
@@ -25,6 +25,6 @@ if(CATKIN_ENABLE_TESTING)
   add_library(test_plugins EXCLUDE_FROM_ALL SHARED test/test_plugins.cpp)
 
   catkin_add_gtest(${PROJECT_NAME}_utest test/utest.cpp)
-  target_link_libraries(${PROJECT_NAME}_utest tinyxml ${catkin_LIBRARIES} ${Boost_LIBRARIES})
+  target_link_libraries(${PROJECT_NAME}_utest ${catkin_LIBRARIES} ${Boost_LIBRARIES})
   add_dependencies(${PROJECT_NAME}_utest test_plugins)
 endif()
